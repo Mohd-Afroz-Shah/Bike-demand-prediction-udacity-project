@@ -64,12 +64,12 @@ Given more time to work with this dataset, I would like to investigate addition
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
 
-![model_train_score.png](img/model_train_score.png)
+![image](https://github.com/Mohd-Afroz-Shah/Bike-demand-prediction-udacity-project/assets/98610550/1bf12f71-2685-4198-b1fa-e2f189d4b5f2)(img/model_train_score.png)
 
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
-![model_test_score.png](img/model_test_score.png)
+![image](https://github.com/Mohd-Afroz-Shah/Bike-demand-prediction-udacity-project/assets/98610550/719202a0-eded-4b8f-a03b-ef330e16b1c7)(img/model_test_score.png)
 
 
 ## Summary
