@@ -1,1 +1,0 @@
-# Bike-demand-prediction-udacity-project
