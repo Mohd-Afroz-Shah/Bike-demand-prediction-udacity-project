@@ -5,17 +5,17 @@
 ## Initial Training
 ### What did you realize when you tried to submit your predictions? What changes were needed to the output of the predictor to submit your results?
 **Five different experiments were performed as follows:**
-1. Initial Raw Submission   **[Model: `initial`]**
-2. Added Features Submission *(EDA +  Feature Engineering)* **[Model: `add_features`]**
-3. Hyperparameter Optimization (HPO) - Initial Setting Submission 
-4. Hyperparameter Optimization (HPO) - Setting 1 Submission **[Model: `hpo (top-hpo-model: hpo1)`]**
+1. Initial Raw Submission
+2. Added Features Submission 
+3. Hyperparameter Optimization (HPO) 
+4. Hyperparameter Optimization (HPO) 
 
 **Observation:** While submitting predictions obtained from all these five experiments, some of the experiments delivered negative predictions values.<br>
 **Changes incorporated:** Kaggle refuses the submissions containing negative predictions values obtained from the predictor. Hence, all such negative outputs from respective predictors were replaced with 0.<br>
 
 
 ### What was the top ranked model that performed?
-The top-ranked model in this project was the WeightedEnsemble_L3 model, specifically the add features model. It achieved a validation root mean squared error (RMSE) score of 34.2609 and the best Kaggle score of 0.44956 on the test dataset. This model was developed by training on data that underwent exploratory data analysis (EDA) and feature engineering without the use of a hyperparameter optimization routine. While some models showed improved RMSE scores on the validation data after hyperparameter optimization, this particular model demonstrated the best performance on the unseen test dataset. It is worth noting that several models delivered competitive performance, and the selection of the top model considered both the RMSE scores during cross-validation and the Kaggle scores on the test dataset.
+The top-ranked model in this project was the WeightedEnsemble_L3 model, specifically the add features model. It achieved the best Kaggle score of 0.44632 on the test dataset. This model was developed by training on data that underwent exploratory data analysis (EDA) and feature engineering without the use of a hyperparameter optimization routine. While some models showed improved RMSE scores on the validation data after hyperparameter optimization, this particular model demonstrated the best performance on the unseen test dataset. It is worth noting that several models delivered competitive performance, and the selection of the top model considered both the RMSE scores during cross-validation and the Kaggle scores on the test dataset.
 
 ## Exploratory data analysis and feature creation
 ### What did the exploratory analysis find and how did you add additional features?
@@ -24,7 +24,7 @@ The top-ranked model in this project was the WeightedEnsemble_L3 model, specific
 - The data for `year`, `month`, `day` *(dayofweek)* and `hour` were extracted as distinct independent features from the `datetime` feature using feature extraction. Upon feature extraction, `datetime` feature was dropped. 
 - After probing and considering the features, `casual` and `registered`, it was noticed that the RMSE scores improved significantly during cross-validation and these independent features were highly co-related to the target variable `count`. However, the features `casual` and `registered` are only present in the train dataset and absent in the test data; hence, these features were ignored/dropped during model training
 - Another categorical feature `day_type` was added based on `holiday` and `workingday` feature. It was defined to effectively segregate "weekday", "weekend" and "holiday" categories.
-- Moreover, features `temp` (temperature in degree Celsius) and `atemp` (*'feels like'* temperature in degree Celsius) had a `high positive correlation of 0.98`. Hence, in order to reduce multicollinearity between independent variables, `atemp` was dropped from the train and test datasets respectively.
+- Moreover, features `temp` (temperature in degree Celsius) and `atemp` (*'feels like'* temperature in degree Celsius) had a `high positive correlation. Hence, in order to reduce multicollinearity between independent variables, `atemp` was dropped from the train and test datasets respectively.
 - Further, data visualization was conducted to derive insights from the features.
 
 
@@ -53,23 +53,12 @@ Hyperparameter tuning proved to be beneficial as it improved the model's perform
 ### If you were given more time with this dataset, where do you think you would spend more time?
 Given more time to work with this dataset, I would like to investigate additional potential outcomes when AutoGluon is run for an extended period with a high quality preset and enhanced hyperparameter tuning.
 
+### Graph of result
 
-### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
-|model|hpo1|hpo2|hpo3|score|
-|--|--|--|--|--|
-|initial|prescribed_values|prescribed_values|"presets: 'best quality'"|1.80520|
-|add_features|prescribed_values|prescribed_values|"presets: 'best quality'"|0.44956|
-|hpo (top-hpo-model: hpo1)|Tree-Based Models: (GBM, XT, & XGB)|LightGBMXT|"presets: 'optimize_for_deployment"|0.49440|
+![image](https://github.com/Mohd-Afroz-Shah/Bike-demand-prediction-udacity-project/assets/98610550/81761195-c1a4-4141-ba83-e83de29d18f7)
 
-
-### Create a line plot showing the top model score for the three (or more) training runs during the project.
-
-![image](https://github.com/Mohd-Afroz-Shah/Bike-demand-prediction-udacity-project/assets/98610550/1bf12f71-2685-4198-b1fa-e2f189d4b5f2)(img/model_train_score.png)
-
-
-### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
-
-![image](https://github.com/Mohd-Afroz-Shah/Bike-demand-prediction-udacity-project/assets/98610550/719202a0-eded-4b8f-a03b-ef330e16b1c7)(img/model_test_score.png)
+### Conclusion:
+The top-ranked model was the (add_features) model named WeightedEnsemble_L3, with best Kaggle score of 0.44632 (on test dataset).
 
 
 ## Summary
